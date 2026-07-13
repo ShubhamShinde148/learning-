@@ -97,9 +97,10 @@ document.addEventListener('DOMContentLoaded', () => {
         setTimeout(() => {
             // Mock dynamic credentials check
             if (emailInput.value.trim() === 'demo@example.com' && passwordInput.value === 'password123') {
+                sessionStorage.setItem('userEmail', emailInput.value);
                 showToast('Successfully signed in! Redirecting...', 'success');
                 setTimeout(() => {
-                    resetForm();
+                    window.location.href = 'dashboard.html';
                 }, 1500);
             } else {
                 showToast('Incorrect email or password. Hint: demo@example.com & password123', 'error');
